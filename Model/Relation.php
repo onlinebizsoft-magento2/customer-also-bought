@@ -254,11 +254,16 @@ class Relation extends \Magento\Framework\Model\AbstractModel
             $item->afterLoad($item);
             $productId = $item->getData('base_product_id');
             $productSku = $this->getProductSKU($productId);
+            if(!$productSku)
+                continue;
             $relationsData = $item->getData('relations_serialized');
+            $relationsData = json_decode($relationsData, true);
             $links = [];
 
             foreach ($relationsData as $relation) {
                 $relatedProductSku = $this->getProductSKU($relation['product_id']);
+                if(!$relatedProductSku)
+                   continue;
                 $frequency = $relation['frequency'];
                 $position = $this->getLinkPosition($frequency);
                 /** @var \Magento\Catalog\Api\Data\ProductLinkInterface $link */
