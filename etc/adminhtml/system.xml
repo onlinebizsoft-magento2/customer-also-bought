@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_alsobought" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Also Bought</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_AlsoBought::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="mageworx_collect" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>MageWorx\AlsoBought\Block\System\Config\Collect</frontend_model>
+                    <label>Collect all available data (in separate table)</label>
+                </field>
+
+                <field id="collect_time" translate="label comment" type="hidden" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>MageWorx\AlsoBought\Block\System\Config\Collect\Time</frontend_model>
+                </field>
+
+                <field id="mageworx_apply" translate="label comment" type="button" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>MageWorx\AlsoBought\Block\System\Config\Apply</frontend_model>
+                    <label>Apply collected relations data to the products</label>
+                </field>
+
+                <field id="apply_time" translate="label comment" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>MageWorx\AlsoBought\Block\System\Config\Apply\Time</frontend_model>
+                </field>
+
+                <field id="cron_active" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Cron Jobs Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

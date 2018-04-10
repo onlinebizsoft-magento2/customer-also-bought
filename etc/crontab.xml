@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="mageworx_alsobought">
+        <job name="mageworx_alsobought_collect" instance="MageWorx\AlsoBought\Cron\Collect" method="execute">
+            <schedule>0 4 * * *</schedule>
+        </job>
+        <job name="mageworx_alsobought_apply" instance="MageWorx\AlsoBought\Cron\Apply" method="execute">
+            <schedule>0 5 * * *</schedule>
+        </job>
+    </group>
+</config>
